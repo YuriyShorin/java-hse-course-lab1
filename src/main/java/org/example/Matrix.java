@@ -1,6 +1,8 @@
 package org.example;
 
-import java.util.Scanner;
+import org.example.exceptions.InconsistentMatricesException;
+import org.example.exceptions.NonSquareMatrixException;
+import org.example.exceptions.NotEqualSizeOfMatrixException;
 
 /**
  * Класс для работы с матрицами
@@ -28,7 +30,7 @@ public class Matrix {
      *
      * @param size размер квадратной матрицы
      */
-    Matrix(int size) {
+    public Matrix(int size) {
         this.numberOfRows = size;
         this.numberOfColumns = size;
         this.matrix = new Complex[this.numberOfRows][this.numberOfColumns];
@@ -40,7 +42,7 @@ public class Matrix {
      * @param numberOfRows    количество строк в матрице
      * @param numberOfColumns количество столбцов в матрице
      */
-    Matrix(int numberOfRows, int numberOfColumns) {
+   public Matrix(int numberOfRows, int numberOfColumns) {
         this.numberOfRows = numberOfRows;
         this.numberOfColumns = numberOfColumns;
         this.matrix = new Complex[this.numberOfRows][this.numberOfColumns];
@@ -51,7 +53,7 @@ public class Matrix {
      *
      * @param matrix матрица в виде чисел типа double
      */
-    Matrix(double[][] matrix) {
+    public Matrix(double[][] matrix) {
         this.numberOfRows = matrix.length;
         this.numberOfColumns = matrix[0].length;
         this.matrix = new Complex[this.numberOfRows][this.numberOfColumns];
@@ -67,24 +69,10 @@ public class Matrix {
      *
      * @param matrix матрица в виде чисел типа Complex
      */
-    Matrix(Complex[][] matrix) {
+    public Matrix(Complex[][] matrix) {
         this.numberOfRows = matrix.length;
         this.numberOfColumns = matrix[0].length;
         this.matrix = matrix;
-    }
-
-    /**
-     * Ввод матрицы с консоли
-     */
-    public void input() {
-        System.out.println("Enter matrix with size " + this.numberOfRows + "x" + this.numberOfColumns + ":");
-        Scanner scanner = new Scanner(System.in);
-        for (int i = 0; i < this.numberOfRows; ++i) {
-            for (int j = 0; j < this.numberOfColumns; ++j) {
-                String number = scanner.next();
-                this.matrix[i][j] = new Complex(number);
-            }
-        }
     }
 
     /**

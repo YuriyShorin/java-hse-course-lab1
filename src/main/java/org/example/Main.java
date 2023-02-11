@@ -1,7 +1,12 @@
 package org.example;
 
+import org.example.exceptions.InconsistentMatricesException;
+import org.example.exceptions.NonSquareMatrixException;
+import org.example.exceptions.NotEqualSizeOfMatrixException;
+import org.example.utils.Input;
+
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args){
         complexClassTests();
         matrixClassTests();
     }
@@ -59,13 +64,13 @@ public class Main {
         resultOfDivision.print();
     }
 
-    public static void matrixClassTests() {
-        Matrix matrix = new Matrix(2); // задание размера квадрватной матрицы
-        matrix.input(); // ввод с консоли
+    public static void matrixClassTests(){
+
+        Matrix matrix = Input.inputMatrix();
         matrix.print();
 
-        matrix = new Matrix(3, 2); // задание размера прямоугольной матрицы
-        matrix.input();
+        Complex number2 = new Complex(-12.33, -45.8);
+        matrix = matrix.multiplyOnNumber(number2);
         matrix.print();
 
         System.out.println("Constructor with a matrix of type double:");

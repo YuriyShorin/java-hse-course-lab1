@@ -8,7 +8,7 @@ import java.util.Objects;
 /**
  * Класс для работы с комлпексными числами
  */
-class Complex {
+public class Complex {
 
     /**
      * Реальная часть
@@ -24,7 +24,7 @@ class Complex {
     /**
      * Конструктор без параметров
      */
-    Complex() {
+    public Complex() {
     }
 
     /**
@@ -33,7 +33,7 @@ class Complex {
      * @param real реальная часть
      */
 
-    Complex(double real) {
+   public Complex(double real) {
         this.real = real;
     }
 
@@ -41,9 +41,9 @@ class Complex {
      * Конструктор с двумя параметрами
      *
      * @param real    реальная часть
-     * @param complex комплексна часть
+     * @param complex комплексная часть
      */
-    Complex(double real, double complex) {
+   public Complex(double real, double complex) {
         this.real = real;
         this.complex = complex;
     }
@@ -53,7 +53,7 @@ class Complex {
      *
      * @param number кмоплексное число записанное в формес строки
      */
-    Complex(String number) {
+    public Complex(String number) {
         Complex complex = Complex.parseComplex(number);
         this.real = complex.getReal();
         this.complex = complex.getComplex();
